@@ -1,0 +1,18 @@
+
+.enter {
+    left: 100%;
+}
+
+.enterActive {
+    left: 0;
+    transition: 400ms ease-in-out;
+}
+
+.leave {
+    left: 0;
+}
+
+.leaveActive {
+    left: 100%;
+    transition: all 400ms ease-in;
+}

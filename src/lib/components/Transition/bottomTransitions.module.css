@@ -1,0 +1,18 @@
+
+.enter {
+    top: 100vh;
+}
+
+.enterActive {
+    top: 0;
+    transition: 400ms ease-in-out;
+}
+
+.leave {
+    top: 0;
+}
+
+.leaveActive {
+    top: 100vh;
+    transition: all 400ms ease-in;
+}

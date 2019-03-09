@@ -1,0 +1,33 @@
+
+.closeIcon {
+    margin-left: auto;
+    color: #000;
+    width: 21px;
+    height: 21px;
+    position: relative;
+    top: 10px;
+    right: 10px;
+}
+
+.closeIcon:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 21px;
+    height: 1px;
+    background-color: currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.closeIcon:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 21px;
+    height: 1px;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+

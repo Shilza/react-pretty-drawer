@@ -1,0 +1,61 @@
+{
+  "name": "react-pretty-drawer",
+  "version": "0.1.0",
+  "description": "Simple and pretty React drawer",
+  "author": {
+    "name": "Shilza",
+    "email": "iskandreww@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shilza/react-pretty-drawer"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "react component",
+    "drawer",
+    "web"
+  ],
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.4.10",
+    "postcss-cli": "^6.1.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "2.1.8",
+    "rollup": "^1.6.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-postcss": "^2.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "del lib && SET NODE_ENV=production&& babel src/lib --out-dir lib --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ && postcss lib/**/*.css -r --no-map --use autoprefixer",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prefixer": "postcss src/**/*.css -r --no-map --use autoprefixer",
+    "rlp": "SET NODE_ENV=production&& rollup -c"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
