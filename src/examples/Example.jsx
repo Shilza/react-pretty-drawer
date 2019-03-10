@@ -57,7 +57,7 @@ const Example = () => {
                     </Checkbox>
                 </div>
                 <a
-                    href="https://github.com/Shilza/react-pretty-drawer/blob/master/src/examples/Example.js"
+                    href="https://github.com/Shilza/react-pretty-drawer/blob/master/src/examples/Example.jsx"
                     target="_blank"
                     rel="noopener noreferrer"
                 >Code</a>
