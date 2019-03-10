@@ -1,0 +1,69 @@
+import React, {useState} from 'react';
+import styles from './example.module.css';
+import Drawer from '../lib/components/Drawer/Drawer';
+import Button from './components/Button/Button';
+import Radio from './components/Radio/Radio';
+import Checkbox from './components/Checkbox/Checkbox';
+
+const Example = () => {
+
+    let [visible, setIsVisible] = useState(false);
+    let [placement, setPlacement] = useState(false);
+    let [closable, setClosable] = useState(false);
+    let [mask, setIsMask] = useState(true);
+
+    const closeDrawer = () => setIsVisible(false);
+    const openDrawer = () => setIsVisible(true);
+    const onChange = event => setPlacement(event.target.value);
+
+    return (
+        <div className={styles.mainContainer}>
+            <Drawer
+                visible={visible}
+                onClose={closeDrawer}
+                placement={placement}
+                closable={closable}
+                mask={mask}
+            >
+                <div>Drawer body</div>
+            </Drawer>
+            <h2>
+                react-pretty-drawer
+            </h2>
+            <div className={styles.content}>
+                <div className={styles.inlineContainer}>
+
+                    <Radio id="1" value="top" onChange={onChange} checked={placement === 'top'}>
+                        top
+                    </Radio>
+                    <Radio id="2" value="right" onChange={onChange} checked={placement === 'right'}>
+                        right
+                    </Radio>
+                    <Radio id="3" value="bottom" onChange={onChange} checked={placement === 'bottom'}>
+                        bottom
+                    </Radio>
+                    <Radio id="4" value="left" onChange={onChange} checked={placement === 'left'}>
+                        left
+                    </Radio>
+
+                    <Button onClick={openDrawer}>{visible ? "Close" : "Open"}</Button>
+                </div>
+                <div className={styles.inlineContainer}>
+                    <Checkbox id="closable" onChange={() => setClosable(!closable)} checked={closable}>
+                        Closable
+                    </Checkbox>
+                    <Checkbox id="mask" onChange={() => setIsMask(!mask)} checked={mask}>
+                        Mask
+                    </Checkbox>
+                </div>
+                <a
+                    href="https://github.com/Shilza/react-pretty-drawer/blob/master/src/examples/Example.js"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Code</a>
+            </div>
+        </div>
+    );
+};
+
+export default Example;

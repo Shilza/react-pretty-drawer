@@ -1,6 +1,6 @@
 {
   "name": "react-pretty-drawer",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Simple and pretty React drawer",
   "author": {
     "name": "Shilza",
@@ -11,12 +11,13 @@
     "type": "git",
     "url": "https://github.com/shilza/react-pretty-drawer"
   },
+  "homepage": "https://shilza.github.io/react-pretty-drawer",
   "keywords": [
     "react",
-    "ui",
     "component",
-    "react component",
     "drawer",
+    "frontend",
+    "ui",
     "web"
   ],
   "module": "dist/index.js",
@@ -27,6 +28,7 @@
   ],
   "devDependencies": {
     "autoprefixer": "^9.4.10",
+    "gh-pages": "^2.0.1",
     "postcss-cli": "^6.1.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -45,7 +47,9 @@
     "start": "react-scripts start",
     "build": "SET NODE_ENV=production&& rollup -c",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
