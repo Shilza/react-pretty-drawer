@@ -1,6 +1,6 @@
 
 const delay = duration =>
-    new Promise((resolve: () => mixed) => {
+    new Promise(resolve => {
         setTimeout(() => {
             resolve();
         }, duration);

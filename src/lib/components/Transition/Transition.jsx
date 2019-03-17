@@ -7,7 +7,7 @@ import topTransitions from './topTransitions.module.css';
 import bottomTransitions from './bottomTransitions.module.css';
 import CloseButton from '../CloseButton/CloseButton';
 
-const getClassNameByPlacement = (placement: string) => {
+const getWrapperClassNameByPlacement = placement => {
     switch (placement) {
         case 'top':
             return styles.topContainer;
@@ -22,7 +22,7 @@ const getClassNameByPlacement = (placement: string) => {
     }
 };
 
-const getTransitionByPlacement = (placement: string) => {
+const getTransitionStylesByPlacement = placement => {
     switch (placement) {
         case 'top':
             return topTransitions;
@@ -37,7 +37,7 @@ const getTransitionByPlacement = (placement: string) => {
     }
 };
 
-const getWidthByPlacement = (placement: string) => {
+const getWidthByPlacement = placement => {
     switch (placement) {
         case 'top':
             return '100%';
@@ -52,7 +52,7 @@ const getWidthByPlacement = (placement: string) => {
     }
 };
 
-const getHeightByPlacement = (placement: string) => {
+const getHeightByPlacement = placement => {
     switch (placement) {
         case 'top':
             return '256px';
@@ -65,16 +65,6 @@ const getHeightByPlacement = (placement: string) => {
         default:
             return '100%';
     }
-};
-
-type PropTypes = {
-    children: Element,
-    isOpen: boolean,
-    placement: string,
-    width: string | number,
-    height: string | number,
-    closable: boolean,
-    onClose: () => mixed
 };
 
 const Transition = ({
@@ -85,7 +75,7 @@ const Transition = ({
     height,
     closable,
     onClose
-}: PropTypes) => {
+}) => {
     const [childrenVisible, setChildrenVisible] = useState(false);
 
     useEffect(() => {
@@ -94,21 +84,23 @@ const Transition = ({
 
     const contentWidth = width || getWidthByPlacement(placement);
     const contentHeight = height || getHeightByPlacement(placement);
+    const childWrapperStyle = {
+        width: contentWidth,
+        height: contentHeight
+    };
 
     return (
         <ReactCSSTransitionGroup
-            transitionName={getTransitionByPlacement(placement)}
-            transitionAppearTimeout={300}
+            transitionName={getTransitionStylesByPlacement(placement)}
+            transitionEnterTimeout={300}
             transitionLeaveTimeout={400}
             className={styles.transitionContainer}
         >
             {childrenVisible && isOpen && (
                 <div
-                    className={getClassNameByPlacement(placement)}
-                    style={{
-                        width: contentWidth,
-                        height: contentHeight
-                    }}
+                    data-testid="drawerBodyWrapper"
+                    className={getWrapperClassNameByPlacement(placement)}
+                    style={childWrapperStyle}
                 >
                     {closable && <CloseButton onClose={onClose}/>}
                     {children}

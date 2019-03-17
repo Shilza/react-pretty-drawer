@@ -1,6 +1,6 @@
 {
   "name": "react-pretty-drawer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Simple and pretty React drawer",
   "author": {
     "name": "Shilza",
@@ -28,11 +28,14 @@
   ],
   "devDependencies": {
     "autoprefixer": "^9.4.10",
+    "babel-plugin-jsx-remove-data-test-id": "^2.0.0",
     "gh-pages": "^2.0.1",
+    "jest-dom": "^3.1.2",
     "postcss-cli": "^6.1.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
+    "react-testing-library": "^6.0.0",
     "rollup": "^1.6.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-babel-minify": "^8.0.0",
