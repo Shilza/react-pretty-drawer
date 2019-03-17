@@ -32,17 +32,16 @@ const Example = () => {
             </h2>
             <div className={styles.content}>
                 <div className={styles.inlineContainer}>
-
-                    <Radio id="1" value="top" onChange={onChange} checked={placement === 'top'}>
+                    <Radio id="radio-top" value="top" onChange={onChange} checked={placement === 'top'}>
                         top
                     </Radio>
-                    <Radio id="2" value="right" onChange={onChange} checked={placement === 'right'}>
+                    <Radio id="radio-right" value="right" onChange={onChange} checked={placement === 'right'}>
                         right
                     </Radio>
-                    <Radio id="3" value="bottom" onChange={onChange} checked={placement === 'bottom'}>
+                    <Radio id="radio-bottom" value="bottom" onChange={onChange} checked={placement === 'bottom'}>
                         bottom
                     </Radio>
-                    <Radio id="4" value="left" onChange={onChange} checked={placement === 'left'}>
+                    <Radio id="radio-left" value="left" onChange={onChange} checked={placement === 'left'}>
                         left
                     </Radio>
 
