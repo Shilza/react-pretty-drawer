@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createPortal} from 'react-dom';
 import styles from './drawer.module.css';
 import Transition from '../Transition/Transition';
@@ -6,9 +6,9 @@ import Mask from '../Mask/Mask';
 import delay from "../util/delay";
 
 const Drawer = ({
-                    onClose = () => {},
+                    onClose,
                     children,
-                    visible,
+                    visible = false,
                     placement,
                     width,
                     height,
@@ -22,16 +22,13 @@ const Drawer = ({
     const closeDrawer = () => {
         setTransitionOpen(false);
         delay(400).then(() => {
-            onClose();
-            setTransitionOpen(true);
+            onClose && onClose();
         });
     };
 
-    const closeByCoverClick = (event) => {
-        const {id} = event.target;
-        if (id === 'mask')
-            closeDrawer();
-    };
+    useEffect(() => {
+        setTransitionOpen(true);
+    }, [visible]);
 
     const computedMaskStyle = mask
         ? maskStyle
@@ -41,12 +38,12 @@ const Drawer = ({
         <>
             {visible && (
                 <div
+                    data-testid="drawer"
                     className={styles.drawerContainer}
                     role="dialog"
-                    onClick={closeByCoverClick}
                     style={{zIndex}}
                 >
-                    <Mask style={computedMaskStyle}/>
+                    <Mask style={computedMaskStyle} onClose={closeDrawer}/>
                     <Transition
                         isOpen={transitionOpen}
                         placement={placement}
