@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './example.module.css';
-import Drawer from '../lib/components/Drawer/Drawer';
+import {Drawer} from '../lib/index';
 import Button from './components/Button/Button';
 import Radio from './components/Radio/Radio';
 import Checkbox from './components/Checkbox/Checkbox';
@@ -8,7 +8,7 @@ import Checkbox from './components/Checkbox/Checkbox';
 const Example = () => {
 
     let [visible, setIsVisible] = useState(false);
-    let [placement, setPlacement] = useState(false);
+    let [placement, setPlacement] = useState('left');
     let [closable, setClosable] = useState(false);
     let [mask, setIsMask] = useState(true);
 

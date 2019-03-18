@@ -3,7 +3,8 @@ import {createPortal} from 'react-dom';
 import styles from './drawer.module.css';
 import Transition from '../Transition/Transition';
 import Mask from '../Mask/Mask';
-import delay from "../util/delay";
+import delay from '../util/delay';
+import {withErrorHandler} from '../util/errorHandler';
 
 const Drawer = ({
                     onClose,
@@ -61,4 +62,4 @@ const Drawer = ({
     );
 };
 
-export default Drawer;
+export default withErrorHandler(Drawer);
