@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/react-pretty-drawer/static/js/runtime~main.75ccef57.js"
   },
   {
-    "revision": "342fc3ff4472f7c284a8",
+    "revision": "a250752c9e2d2d81a241",
     "url": "/react-pretty-drawer/static/js/main.08320549.chunk.js"
   },
   {
@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/react-pretty-drawer/static/js/2.962775d8.chunk.js"
   },
   {
-    "revision": "342fc3ff4472f7c284a8",
-    "url": "/react-pretty-drawer/static/css/main.c1ee4dbd.chunk.css"
+    "revision": "a250752c9e2d2d81a241",
+    "url": "/react-pretty-drawer/static/css/main.267452fb.chunk.css"
   },
   {
-    "revision": "a1bfea5444529a3af2586bfa3b41ec51",
+    "revision": "dceffad7d1a2e0ccba040bf5e80edd60",
     "url": "/react-pretty-drawer/index.html"
   }
 ];
