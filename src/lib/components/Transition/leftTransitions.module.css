@@ -1,18 +1,19 @@
 
 .enter {
-    right: 100%;
+    transform: translateX(-100%);
 }
 
 .enterActive {
-    right: 0;
+    transform: translateX(0);
     transition: 300ms ease-in-out;
 }
 
 .leave {
     right: 0;
+    transform: translateX(0);
 }
 
 .leaveActive {
-    right: 100%;
+    transform: translateX(-100%);
     transition: all 400ms ease-in;
 }
