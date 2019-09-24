@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CloseButton from '../CloseButton/CloseButton';
 import styles from '../Drawer/drawer.module.css';
 import leftTransitions from './leftTransitions.module.css';
 import rightTransitions from './rightTransitions.module.css';
 import topTransitions from './topTransitions.module.css';
 import bottomTransitions from './bottomTransitions.module.css';
-import CloseButton from '../CloseButton/CloseButton';
 
 const getWrapperClassNameByPlacement = placement => {
     switch (placement) {
@@ -68,14 +68,16 @@ const getHeightByPlacement = placement => {
 };
 
 const Transition = ({
-    children,
-    isOpen,
-    placement = 'left',
-    width,
-    height,
-    closable,
-    onClose
-}) => {
+                        children,
+                        isOpen,
+                        placement = 'left',
+                        width,
+                        height,
+                        closable,
+                        onClose,
+                        style,
+                        className
+                    }) => {
     const [childrenVisible, setChildrenVisible] = useState(false);
 
     useEffect(() => {
@@ -86,20 +88,21 @@ const Transition = ({
     const contentHeight = height || getHeightByPlacement(placement);
     const childWrapperStyle = {
         width: contentWidth,
-        height: contentHeight
+        height: contentHeight,
+        ...style
     };
 
     return (
         <ReactCSSTransitionGroup
             transitionName={getTransitionStylesByPlacement(placement)}
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={400}
+            transitionEnterTimeout={220}
+            transitionLeaveTimeout={160}
             className={styles.transitionContainer}
         >
             {childrenVisible && isOpen && (
                 <div
                     data-testid="drawerBodyWrapper"
-                    className={getWrapperClassNameByPlacement(placement)}
+                    className={`${getWrapperClassNameByPlacement(placement)} ${className}`}
                     style={childWrapperStyle}
                 >
                     {closable && <CloseButton onClose={onClose}/>}

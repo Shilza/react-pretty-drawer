@@ -5,7 +5,7 @@
 
 .enterActive {
     transform: translateX(0);
-    transition: 300ms ease-in-out;
+    transition: 220ms ease-in-out;
 }
 
 .leave {
@@ -14,5 +14,5 @@
 
 .leaveActive {
     transform: translateX(100%);
-    transition: all 400ms ease-in;
+    transition: all 160ms ease-in;
 }
