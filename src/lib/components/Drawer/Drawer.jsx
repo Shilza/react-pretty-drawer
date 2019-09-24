@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {createPortal} from 'react-dom';
-import styles from './drawer.module.css';
 import Transition from '../Transition/Transition';
 import Mask from '../Mask/Mask';
 import delay from '../util/delay';
 import {withErrorHandler} from '../util/errorHandler';
+
+import styles from './drawer.module.css';
 
 const Drawer = ({
                     onClose,
@@ -16,6 +17,8 @@ const Drawer = ({
                     mask = true,
                     maskStyle = {backgroundColor: 'rgba(0, 0, 0, 0.3)'},
                     zIndex = 1000,
+                    style,
+                    className,
                     closable = false
                 }) => {
     const [transitionOpen, setTransitionOpen] = useState(true);
@@ -51,6 +54,8 @@ const Drawer = ({
                         width={width}
                         height={height}
                         closable={closable}
+                        style={style}
+                        className={className}
                         onClose={closeDrawer}
                     >
                         {children}

@@ -1,7 +1,7 @@
 import React from "react";
 
 export function withErrorHandler(Component) {
-    class WithErrorHandler  extends React.PureComponent {
+    class WithErrorHandler extends React.PureComponent {
         state = {
             hasError: false
         };
