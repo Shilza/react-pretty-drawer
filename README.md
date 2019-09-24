@@ -1,13 +1,12 @@
 # ⚛️ react-pretty-drawer
-Simple and pretty React drawer component
+Simple and pretty React drawer component. View [demo](https://shilza.github.io/react-pretty-drawer/)
 ## 📦 Install
 The easiest way to use react-pretty-drawer is to install it from npm and include it in your React build process
 
 `$ npm install --save react-pretty-drawer`  
 
 `$ yarn add react-pretty-drawer`
-## Demo
-[https://shilza.github.io/react-pretty-drawer/](https://shilza.github.io/react-pretty-drawer/)
+
 ## Features
 - [x] Open-close animation
 - [x] Closable dialog
@@ -52,5 +51,7 @@ ReactDOM.render(<Example />, document.getElementById("root"));
 | placement | The placement of the Drawer  | 'top'  'right'  'bottom'  'left' | 'left' |
 | onClose | Specify a callback that will be called when a user clicks mask or close button |  function | - |
 | zIndex | The `z-index` of the Drawer.  |  number | 1000 |
+| style | The `style` of the body wrapper.  |  object | - |
+| className | The `class` of the body wrapper.  |  string | - |
 ## License
 MIT
