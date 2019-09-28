@@ -21,7 +21,24 @@ const Drawer = ({
                     className,
                     closable = false
                 }) => {
+
+    const computedMaskStyle = mask
+        ? maskStyle
+        : {backgroundColor: 'transparent'};
+
     const [transitionOpen, setTransitionOpen] = useState(true);
+
+    useEffect(() => {
+        setTransitionOpen(true);
+    }, [visible]);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "visible";
+        };
+    }, []);
 
     const closeDrawer = () => {
         setTransitionOpen(false);
@@ -29,14 +46,6 @@ const Drawer = ({
             onClose && onClose();
         });
     };
-
-    useEffect(() => {
-        setTransitionOpen(true);
-    }, [visible]);
-
-    const computedMaskStyle = mask
-        ? maskStyle
-        : {backgroundColor: 'transparent'};
 
     return createPortal(
         <>
