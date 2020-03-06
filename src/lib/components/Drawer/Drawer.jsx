@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {createPortal} from 'react-dom';
 import Transition from '../Transition/Transition';
 import Mask from '../Mask/Mask';
@@ -21,35 +21,45 @@ const Drawer = ({
                     closable = false
                 }) => {
 
+    const [localVisible, setLocalVisible] = useState(false);
+    const [transitionOpen, setTransitionOpen] = useState(true);
+
     const computedMaskStyle = mask
         ? maskStyle
         : {backgroundColor: 'transparent'};
 
-    const [transitionOpen, setTransitionOpen] = useState(true);
-
     useEffect(() => {
-        setTransitionOpen(true);
+        setTransitionOpen(visible);
     }, [visible]);
 
     useEffect(() => {
         if (visible)
+            setLocalVisible(true);
+        else
+            delay(160).then(() => {
+                setLocalVisible(false);
+            });
+    }, [visible]);
+
+    useEffect(() => {
+        if (localVisible)
             document.body.style.overflow = "hidden";
 
         return () => {
             document.body.style.overflow = "visible";
         };
-    }, [visible]);
+    }, [localVisible]);
 
-    const closeDrawer = () => {
+    const closeDrawer = useCallback(() => {
         setTransitionOpen(false);
-        delay(400).then(() => {
+        delay(160).then(() => {
             onClose && onClose();
         });
-    };
+    }, [onClose]);
 
     return createPortal(
         <>
-            {visible && (
+            {localVisible && (
                 <div
                     data-testid="drawer"
                     className={styles.drawerContainer}
