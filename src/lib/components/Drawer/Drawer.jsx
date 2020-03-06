@@ -4,7 +4,6 @@ import Transition from '../Transition/Transition';
 import Mask from '../Mask/Mask';
 import delay from '../util/delay';
 import {withErrorHandler} from '../util/errorHandler';
-
 import styles from './drawer.module.css';
 
 const Drawer = ({
@@ -56,7 +55,7 @@ const Drawer = ({
                     role="dialog"
                     style={{zIndex}}
                 >
-                    <Mask style={computedMaskStyle} onClose={closeDrawer}/>
+                    <Mask isOpen={transitionOpen} style={computedMaskStyle} onClose={closeDrawer}/>
                     <Transition
                         isOpen={transitionOpen}
                         placement={placement}
