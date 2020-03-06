@@ -32,12 +32,13 @@ const Drawer = ({
     }, [visible]);
 
     useEffect(() => {
-        document.body.style.overflow = "hidden";
+        if (visible)
+            document.body.style.overflow = "hidden";
 
         return () => {
             document.body.style.overflow = "visible";
         };
-    }, []);
+    }, [visible]);
 
     const closeDrawer = () => {
         setTransitionOpen(false);
